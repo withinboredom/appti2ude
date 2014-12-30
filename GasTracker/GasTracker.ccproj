@@ -38,14 +38,6 @@
     <ServiceConfiguration Include="ServiceConfiguration.Stage.cscfg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\API\API.csproj">
-      <Name>API</Name>
-      <Project>{a5c41b61-3eb0-4992-bb65-7189748a64a0}</Project>
-      <Private>True</Private>
-      <RoleType>Web</RoleType>
-      <RoleName>API</RoleName>
-      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
-    </ProjectReference>
     <ProjectReference Include="..\App\App.csproj">
       <Name>App</Name>
       <Project>{f43d9196-c774-40da-aff2-6c015115afea}</Project>

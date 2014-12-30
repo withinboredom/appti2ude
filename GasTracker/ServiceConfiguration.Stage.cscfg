@@ -3,17 +3,15 @@
   <Role name="App">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Auth0.Domain" value=""/>
+      <Setting name="Auth0.Domain" value="" />
     </ConfigurationSettings>
-  </Role>
-  <Role name="API">
-    <Instances count="1" />
-    <ConfigurationSettings />
   </Role>
   <Role name="Processor">
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[your namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[your key]" />
     </ConfigurationSettings>
+    <Certificates>
+    </Certificates>
   </Role>
 </ServiceConfiguration>
