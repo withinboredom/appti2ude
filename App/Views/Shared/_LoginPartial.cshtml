@@ -1,0 +1,46 @@
+﻿﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Auth0Account", new { returnUrl = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="/App">Hello @User.Identity.GetUserName()!</a>
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li><a href="javascript:showWidget();">Login</a></li>
+    </ul>
+
+    <script src="https://cdn.auth0.com/w2/auth0-widget-5.0.min.js"></script>
+    <script type="text/javascript">
+        if (!window.location.origin) {
+            window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+        }
+
+        var widget = new Auth0Widget({
+            domain: '@System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"]',
+            clientID: '@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]',
+            callbackURL: window.location.origin + '/signin-auth0'
+        });
+
+        function showWidget() {
+            // optional: set xsrf and returnUrl
+            /* var xsrf = 'your_xsrf_random_string';
+            var returnUrl = window.location.pathname;
+            widget.signin({
+                state: 'xsrf=' + xsrf + '&ru=' + returnUrl
+            });*/
+
+            widget.signin();
+        }
+    </script>
+}

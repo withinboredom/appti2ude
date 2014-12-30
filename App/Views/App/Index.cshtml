@@ -1,0 +1,209 @@
+﻿@model UserVehicles
+
+@{
+    ViewBag.Title = "App";
+}
+
+<div class="row">
+    @Html.Partial("_Sidebar")
+    <div class="col-sm-8 col-md-9">
+        <h1>Gass App</h1>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (Vehicle v in Model.Vehicles)
+    {
+        <div class="col-sm-6 col-md-4">
+            <div class="panel profile-widget">
+                <div class="panel-heading">
+                    <img class="img-responsive img-rounded" src="@v.Picture.ToString()" />
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        @if (v.HasAlert)
+                        {
+                        <span class="pull-right label label-danger label-badge">
+                            <i class="fa fa-fw fa-2x fa-exclamation"></i>
+                        </span>
+                        }
+                        <div class="media-body">
+                            <h2 class="media-heading">
+                                @v.Make <strong>@v.Model</strong>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="list-block">
+                        <ul class="text-center">
+                            <li>
+                                <i class="fa fa-road"></i>
+                                <br />
+                                @Html.DisplayFor(m => v.Odometer) @v.OdometerUnits
+                            </li>
+                            <li>
+                                <i class="fa fa-car"></i>
+                                <br />
+                                @Html.DisplayFor(m => v.MPG) @v.MPGUnits
+                            </li>
+                            <li>
+                                <i class="fa fa-money"></i>
+                                <br />
+                                @Html.DisplayFor(m => v.CostPer) per @v.CostPerUnits
+                            </li>
+                            <li>
+                                <i class="fa fa-calendar"></i>
+                                <br />
+                                @Html.DisplayFor(m => v.EstimatedService)
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn-group btn-group-justified text-uppercase text-center">
+                        <a href="/App/Fillup/@v.Id.ToString()" class="btn btn-default" role="button">
+                            <i class="fa fa-credit-card"></i>
+                            <br />
+                            <small>Fillup</small>
+                        </a>
+                        <a href="/App/Maintain/@v.Id.ToString()" class="btn btn-default" role="btn">
+                            <i class="fa fa-wrench"></i>
+                            <br />
+                            <small>Maintenance</small>
+                        </a>
+                        <a href="/App/Trip/@v.Id.ToString()" class="btn btn-default" role="button">
+                            <i class="fa fa-road"></i>
+                            <br />
+                            <small>Trip</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="col-sm-6 col-md-4">
+        <a class="">
+            <div class="panel profile-widget">
+                <div class="panel-body text-center">
+                    <span class="text-uppercase text-success">
+                        <i class="fa fa-fw fa-4x fa-plus"></i>
+                        Add A Car
+                    </span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<!--
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="panel profile-widget">
+            <div class="panel-heading">
+                <img class="img-responsive img-rounded" src="http://4hdwallpapers.com/wp-content/uploads/2013/04/The-Lion-King-Desktop-1024x640.jpg" />
+            </div>
+            <div class="panel-body">
+                <div class="media">
+                    <span class="pull-right label label-danger label-badge" title="Service Overdue">
+                        <i class="fa fa-fw fa-2x fa-exclamation"></i>
+                    </span>
+                    <div class="media-body">
+                        <h2 class="media-heading">
+                            Dodge <strong>Calibur</strong>
+
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-foooter">
+                <div class="list-block">
+                    <ul class="text-center">
+                        <li class="">
+                            <i class="fa fa-road"></i>
+                            <br />
+                            102,000 miles
+                        </li>
+                        <li>
+                            <i class="fa fa-car"></i>
+                            <br />
+                            25.32 MPG
+                        </li>
+                        <li>
+                            <i class="fa fa-money"></i>
+                            <br />
+                            $0.11 per mile
+                        </li>
+                        <li>
+                            <i class="fa fa-calendar"></i>
+                            <br />
+                            22 Jan
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group btn-group-justified text-uppercase text-center">
+                    <a href="/App/Fillup/Car" class="btn btn-default" role="button">
+                        <i class="fa fa-credit-card"></i>
+                        <br />
+                        <small>Fillup</small>
+                    </a>
+                    <a href="/App/Maintain/Car" class="btn btn-default" role="button">
+                        <i class="fa fa-wrench"></i>
+                        <br />
+                        <small>Maintenance</small>
+                    </a>
+                    <a href="/App/Trip/Car" class="btn btn-default" role="button">
+                        <i class="fa fa-road"></i>
+                        <br />
+                        <small>Trip</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="panel profile-widget">
+            <div class="panel-heading">
+                <img class="img-responsive img-rounded" src="http://4hdwallpapers.com/wp-content/uploads/2013/04/The-Lion-King-Desktop-1024x640.jpg" />
+            </div>
+            <div class="panel-body">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object img-circle" />
+                    </a>
+                    <div class="media-body">
+                        <h2 class="media-heading">
+                            Toyota <strong>Prius</strong>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-foooter">
+                <div class="btn-group btn-group-justified">
+                    <div class="btn btn-default">
+                        <i class="fa fa-dashboard"></i>
+                        102,000 miles
+                    </div>
+                    <div class="btn btn-default">
+                        <i class="fa fa-car"></i>
+                        25.34 MPG
+                    </div>
+                    <div class="btn btn-default">
+                        <i class="fa fa-usd"></i>
+                        0.11 per mile
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <a class="">
+            <div class="panel profile-widget">
+                <div class="panel-body text-center">
+                    <span class="text-uppercase text-success">
+                        <i class="fa fa-fw fa-4x fa-plus"></i>
+                        Add a Car
+                    </span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+    -->

@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "GasTracker", "GasTracker\GasTracker.ccproj", "{E27B29E0-51FA-4E96-AE38-70B30ED21760}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "App\App.csproj", "{F43D9196-C774-40DA-AFF2-6C015115AFEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{A5C41B61-3EB0-4992-BB65-7189748A64A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Processor", "Processor\Processor.csproj", "{5C4B802B-6A0C-49B6-938C-6CA0F3BB2DC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0EC826C1-D9BD-4C30-9F81-D47C050659CA}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E27B29E0-51FA-4E96-AE38-70B30ED21760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E27B29E0-51FA-4E96-AE38-70B30ED21760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E27B29E0-51FA-4E96-AE38-70B30ED21760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E27B29E0-51FA-4E96-AE38-70B30ED21760}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F43D9196-C774-40DA-AFF2-6C015115AFEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F43D9196-C774-40DA-AFF2-6C015115AFEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F43D9196-C774-40DA-AFF2-6C015115AFEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F43D9196-C774-40DA-AFF2-6C015115AFEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5C41B61-3EB0-4992-BB65-7189748A64A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5C41B61-3EB0-4992-BB65-7189748A64A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5C41B61-3EB0-4992-BB65-7189748A64A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5C41B61-3EB0-4992-BB65-7189748A64A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C4B802B-6A0C-49B6-938C-6CA0F3BB2DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C4B802B-6A0C-49B6-938C-6CA0F3BB2DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C4B802B-6A0C-49B6-938C-6CA0F3BB2DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C4B802B-6A0C-49B6-938C-6CA0F3BB2DC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

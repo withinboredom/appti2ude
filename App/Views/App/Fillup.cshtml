@@ -1,0 +1,242 @@
+﻿@model VehicleFillups
+
+@{
+    ViewBag.Title = "Fillup";
+}
+
+<div class="row">
+    @Html.Partial("_Sidebar")
+    <div class="col-sm-8 col-md-9">
+        <h1>Gass App</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="panel form-widget">
+            <form class="form-horizontal">
+                <div class="panel-heading text-center">
+                    <h5 class="text-uppercase">
+                        <strong>New Fillup</strong>
+                    </h5>
+                </div>
+                <div class="panel-body">
+                    <label for="">Odometer Reading</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-fw fa-dashboard"></i>
+                        </span>
+                        <input name="odometer" type="number" class="form-control input-lg" placeholder="127,000" autocomplete="off" />
+                    </div>
+                    <label for="">Gallons</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-fw fa-tint"></i>
+                        </span>
+                        <input name="volume" type="number" class="form-control input-lg" placeholder="0.00" autocomplete="off" />
+                    </div>
+                    <label for="">Cost</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-fw fa-money"></i>
+                        </span>
+                        <input name="cost" type="number" class="form-control input-lg" placeholder="0.00" autocomplete="off" />
+                    </div>
+                    <label for="">Octane</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-fw fa-rocket"></i>
+                        </span>
+                        <select name="octane" class="form-control input-lg" autocomplete="off">
+                            <option value="87">87</option>
+                            <option value="89">89</option>
+                            <option value="93">93</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    <div class="save-btn">
+                        <a href="#" class="btn btn-ui btn-lg btn-block mrg-btm-10">
+                            <i class="fa fa-fw fa-save"></i>
+                            Save
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    @foreach (var f in Model.Fillups)
+    {
+        <div class="col-sm-6 col-md-4">
+            <div class="panel form-widget">
+                <div class="panel-heading text-center">
+                    <h5 class="text-uppercase">
+                        <span class="pull-left text-info">
+                            @f.Octane
+                        </span>
+                        <strong>Fillup #@f.Number</strong>
+                        <a href="#" class="pull-right">
+                            <i class="fa fa-fw fa-edit"></i>
+                        </a>
+                    </h5>
+                </div>
+                <div clas="panel-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <h2>@Html.DisplayFor(m => f.LastFillup)<br />to @Html.DisplayFor(m => f.ThisFillup)</h2>
+                            @if (f.OnTrip)
+                            {
+                                <em>On <a href="/App/Trip/@f.TripId.ToString()">@f.TripName</a> trip</em>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="list-block">
+                        <ul class="text-center">
+                            <li>
+                                <small>@f.MPGUnits</small>
+                                <h2>@Html.DisplayFor(m => f.MPG)</h2>
+                            </li>
+                            <li>
+                                <small>@f.TravelledUnits</small>
+                                <h2>@Html.DisplayFor(m => f.Travelled)</h2>
+                            </li>
+                            <li>
+                                <small>Cost</small>
+                                <h2>@Html.DisplayFor(m => f.Cost)</h2>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<!--
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="panel form-widget">
+            <form class="form-horizontal">
+                <div class="panel-heading text-center">
+                    <h5 class="text-uppercase">
+                        <strong>Fillup #5</strong>
+                    </h5>
+                </div>
+                <div class="panel-body">
+                    <label for="">Odometer Reading</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-fw fa-dashboard"></i>
+                        </span>
+                        <input name="odometer" type="number" class="form-control input-lg" placeholder="127,000" autocomplete="off" />
+                    </div>
+                    <label for="">Gallons</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-fw fa-tint"></i>
+                        </span>
+                        <input name="volume" type="number" class="form-control input-lg" placeholder="0.00" autocomplete="off" />
+                    </div>
+                    <label for="">Cost</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-fw fa-money"></i>
+                        </span>
+                        <input name="cost" type="number" class="form-control input-lg" placeholder="0.00" autocomplete="off" />
+                    </div>
+                    <label for="">Octane</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-fw fa-rocket"></i>
+                        </span>
+                        <select name="octane" class="form-control input-lg" autocomplete="off">
+                            <option value="87">87</option>
+                            <option value="89">89</option>
+                            <option value="93">93</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    <div class="save-btn">
+                        <a href="#" class="btn btn-ui btn-lg btn-block mrg-btm-10">
+                            <i class="fa fa-fw fa-save"></i>
+                            Save
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="panel profile-widget">
+            <div class="panel-body">
+                <div class="media">
+                    <div class="media-body">
+                        <h2>24 Dec, 2014<br />to 28 Dec, 2014</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="list-block">
+                    <ul class="text-center">
+                        <li>
+                            <small>MPG</small>
+                            <h2>26.24</h2>
+                        </li>
+                        <li>
+                            <small>Miles</small>
+                            <h2>64</h2>
+                        </li>
+                        <li>
+                            <small>Cost</small>
+                            <h2>$24.24</h2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="panel form-widget">
+            <div class="panel-heading text-center">
+                <h5 class="text-uppercase">
+                    <span class="pull-left text-info">
+                        87 Octane
+                    </span>
+                    <strong>Fillup #3</strong>
+                    <span class="pull-right">
+                        <i class="fa fa-fw fa-edit"></i>
+                    </span>
+                </h5>
+            </div>
+            <div class="panel-body">
+                <div class="media">
+                    <div class="media-body">
+                        <h2>24 Dec, 2014<br />to 24 Dec, 2014</h2>
+                        <em>On <a>christmas 2014</a> trip</em>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="list-block">
+                    <ul class="text-center">
+                        <li>
+                            <small>MPG</small>
+                            <h2>26.24</h2>
+                        </li>
+                        <li>
+                            <small>Miles</small>
+                            <h2>231</h2>
+                        </li>
+                        <li>
+                            <small>Cost</small>
+                            <h2>$24.24</h2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    -->
