@@ -16,6 +16,11 @@ namespace App.Controllers
             return View(model);
         }
 
+        public ActionResult AddVehicle()
+        {
+            return View();
+        }
+
         public ActionResult Fillup(string id)
         {
             var model = Mocks.getFillupMock();

@@ -7,10 +7,10 @@ using Vehicle;
 using Commands;
 using Events;
 
-namespace VehicleTests
+namespace UnitTests
 {
     [TestFixture]
-    public class CreationTests : BDDTest<VehicleAggregate>
+    public class VehicleTests : BDDTest<VehicleAggregate>
     {
         Guid Id;
         string User;
